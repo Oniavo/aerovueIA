@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+}
+
+#f4d path {
+    stroke-dasharray: 400;
+    /* Ajustez la valeur à la longueur du chemin */
+    stroke-dashoffset: 400;
+    animation: draw 3s linear infinite;
+    /* Animation de 3 secondes */
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+
+#case_hero {
+    position: relative;
+    border: 2px solid #4960FF;
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 70px;
+    overflow: hidden;
+    z-index: 1;
+
+}
+
+/* #case_hero::before {
+    content: '';
+    position: absolute;
+    inset: -1px 30px;
+    background: #00c2cb;
+    transition: 500ms;
+    animation: rotate 4s linear infinite;
+    z-index: -1;
+}
+#case_hero::after{
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 10px;
+    background: #000000;
+    z-index: -1;
+  } */
+
+
+/* @keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+} */
+
+#text_hero span {
+    font-family: Montserrat;
+    font-size: 7vh;
+    font-weight: 800;
+    line-height: 58.51px;
+    text-align: center;
+
+}
+
+#text_hero {
+    font-family: Montserrat;
+    font-size: 7vh;
+    font-weight: 100;
+    line-height: 58.51px;
+    text-align: center;
+
+}
+
+#descri_hero_container {
+    width: 65vw;
+}
+
+#descri_hero {
+    font-family: Montserrat;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 29.26px;
+    text-align: center;
+
+}
+
+#button_hero>button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 250px;
+    background: #4960FF;
+    border-radius: 30px;
+    opacity: 0px;
+    justify-content: center;
+}
+
+#button_hero>button>p {
+    font-family: Montserrat;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 24.38px;
+    text-align: center;
+    padding-right: 20px;
+    padding-left: 10px;
+    white-space: nowrap;
+
+}
+
+#button_hero>button>svg {
+    margin: 10px;
+
+}
+
+
+
+#background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+#fond {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+#boite {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+#background>svg>g {
+    transform-origin: bottom;
+    animation: movecube 3s linear infinite;
+}
+
+@keyframes movecube {
+    0% {
+        transform: translateY(100px);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(100px);
+    }
+}
+
+#box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}

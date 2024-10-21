@@ -5,19 +5,44 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 100vh;
+    background-color: transparent;
+    height: max-content;
 }
 
-#f4d path {
-    stroke-dasharray: 400;
-    /* Ajustez la valeur à la longueur du chemin */
-    stroke-dashoffset: 400;
-    animation: draw 3s linear infinite;
-    /* Animation de 3 secondes */
+#content > * {
+    z-index: 1;
+    padding-top: 7vh;
 }
+
+#f4d_image{
+    width: 50vw;
+    max-width: 600px;
+    background-color: transparent;
+}
+
+#f4d {
+    width: 30vw;
+}
+
+.animate-once{
+    stroke-dasharray: 400;
+    stroke-dashoffset: 0;
+    animation-iteration-count: 1;
+    animation: draw 3s linear;
+}
+
+ #f4d:hover > .animation-hover{
+    stroke-dasharray: 400;
+    stroke-dashoffset: 0;
+    animation-iteration-count: 1;
+    animation: draw 3s linear;
+}
+
 
 @keyframes draw {
-    to {
+    from {
+        stroke-dashoffset: 400;
+    } to {
         stroke-dashoffset: 0;
     }
 }
@@ -27,42 +52,74 @@
     position: relative;
     border: 2px solid #4960FF;
     border-radius: 10px;
-    width: fit-content;
-    height: fit-content;
+    min-height: 75px;
+    margin-top: 5vh;
     padding: 10px 70px;
     overflow: hidden;
     z-index: 1;
+    max-width: 75%;
 
 }
 
-/* #case_hero::before {
+#case_hero>svg{
+    max-width: 100%;
+}
+
+#case_hero::before {
     content: '';
     position: absolute;
-    inset: -1px 30px;
-    background: #00c2cb;
-    transition: 500ms;
-    animation: rotate 4s linear infinite;
+    inset: 0px 0px;
+    width: 100px;
+    height: 50px;
+    background-color: #0022ff;
+    /* box-shadow: 120px 80px 40px 20px #0ff; */
     z-index: -1;
+    animation: translation 3s infinite;
 }
+
+
+
 #case_hero::after{
     content: '';
     position: absolute;
+    top: 0;
+    left: 0;
     inset: 3px;
     border-radius: 10px;
-    background: #000000;
     z-index: -1;
-  } */
+    
+}
+
+#case_hero.case_hero_dark::after{
+    background: #000000;
+}
+#case_hero.case_hero_light::after{
+    background: #ffffff;
+}
 
 
-/* @keyframes rotate {
+@keyframes translation {
     0% {
-        transform: rotate(0deg);
+        top: 0%;
+        left: 0%;
     }
-
+    25% {
+        top: 0%;
+        left: 95%;
+    }
+    50% {
+        top: 90%;
+        left: 95%;
+    }
+    75% {
+        top: 90%;
+        left: 0%;
+    }
     100% {
-        transform: rotate(360deg);
+        top: 0%;
+        left: 0%;
     }
-} */
+}
 
 #text_hero span {
     font-family: Montserrat;
@@ -142,29 +199,80 @@
     position: absolute;
     top: 0;
     left: 0;
+}
+
+#boite>g>rect {
+    z-index: 1;
 
 }
 
-#background>svg>g {
-    transform-origin: bottom;
+#boite>g:nth-child(1) {
+    transform-origin: center;
+    animation: movecube 6s linear infinite;
+}
+
+#boite>g:nth-child(2) {
+    transform-origin: center;
     animation: movecube 3s linear infinite;
 }
 
+#boite>g:nth-child(3) {
+    transform-origin: center;
+    animation: movecube 2s linear infinite;
+}
+
+
+/* @keyframes movecube {
+    0% {
+        transform: translateY(0px) rotateZ(0deg);
+    }
+    50% {
+        transform: translateY(100px) rotateZ(20deg);
+    }
+    100% {
+        transform: translateY(0px) rotateZ(0deg);
+    }
+} */
+
 @keyframes movecube {
     0% {
-        transform: translateY(100px);
+        transform: translateY(50px 70px) rotateZ(2deg);
     }
-
+    25% {
+        transform: translateY(17px, 25px, 0px) rotateZ(27deg);
+    }
     50% {
-        transform: translateY(0);
+        transform: rotateZ(10deg);
     }
-
+    60% {
+        transform: translateY(50px 70px) rotateZ(2deg);
+    }
+    75% {
+        transform: translateY(17px, 25px, 0px) rotateZ(27deg);
+    }
     100% {
+        transform: translateY(50px 70px) rotateZ(2deg);
+    }
+}
+
+#fond>g {
+    animation: movecarre 10s linear infinite;
+}
+
+@keyframes movecarre {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
         transform: translateY(100px);
+    }
+    100% {
+        transform: translateY(0px);
     }
 }
 
 #box {
+    z-index: 0;
     position: absolute;
     top: 0;
     left: 0;
